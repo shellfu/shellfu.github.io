@@ -1,0 +1,298 @@
+/*
+    Dark Base: #0F1226
+    Deep Space Blue: #192340
+    Galaxy Blue: #406473
+    Nebula Mint: #99BFB8
+    Asteroid Dust: #EAF2DC
+*/
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background: #0F1226;
+    color: #EAF2DC;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0F1226;
+    padding: 5px 20px; /* Adjusted padding */
+    border-bottom: 1px solid #333;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    color: #EAF2DC;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin: 0 6px;
+}
+
+.menu-item.title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#menu label, #menu button {
+    white-space: nowrap;
+}
+
+#menu label {
+    margin-right: 5px;
+    font-size: 0.7rem;
+}
+
+#menu h1 {
+    color: #99BFB8;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#menu select,
+#menu input[type="text"],
+#menu input[type="number"],
+#menu input[type="checkbox"] {
+    background: #26292d;
+    border: 1px solid #333;
+    color: #EAF2DC;
+    border-radius: 4px;
+    padding: 3px;
+    margin-right: 1px;
+}
+
+#menu input[type="checkbox"] {
+    accent-color: #EAF2DC; /* Sci-fi green checkbox */
+}
+
+
+#menu input[type="checkbox"] {
+    margin: 0 10px;
+    width: 20px; /* Checkbox size */
+    height: 20px; /* Checkbox size */
+}
+
+#editor, #rendered-view {
+    height: 100%;
+}
+
+#controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(20px, 0.5fr)) auto;
+    gap: 1px;
+    align-items: center;
+    padding: 1px;
+}
+
+#uniformHelp {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 0.8rem;
+    color: #cccccc;
+}
+
+#uniformName, #uniformType, #uniformValue {
+    width: 80%;
+    padding: 8px;
+    margin: 0 auto;
+    background: #26292d;
+    border: 1px solid #333;
+    color: #EAF2DC;
+    border-radius: 4px;
+}
+
+#controls button {
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#controls button:hover {
+    background-color: #0056b3;
+}
+
+#editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(100vh - 60px);
+}
+
+#uniformsPanel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #26292d;
+    padding-top: 4px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%); /* Start hidden */
+    z-index: 10;
+}
+
+#toggleUniformsPanel {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    padding: 5px 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    text-shadow: 0 0 5px rgba(13, 202, 240, 0.7);
+    box-shadow: 0 0 5px rgba(13, 202, 240, 0.7);
+    border: 1px solid rgba(13, 202, 240, 0.7);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    color: #fff; /* Improved button text color for readability */
+    cursor: pointer;
+}
+
+#toggleUniformsPanel:hover {
+    text-shadow: 0 0 10px rgba(11, 181, 212, 0.9);
+    box-shadow: 0 0 10px rgba(11, 181, 212, 0.9);
+    border: 1px solid rgba(11, 181, 212, 0.9);
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#customUniforms {
+    padding-top: 25px;
+    margin: 0 auto;
+    width: 95%;
+    border-collapse: collapse;
+    font-size: 0.75rem; /* Increase font size for better readability */
+    color: #d0d0d0; /* Adjust text color for better contrast */
+    background: #1c1e22; /* Set a contrasting background */
+}
+
+#customUniforms th, #customUniforms td {
+    padding: 5px; /* Increase padding for a more spacious look */
+    border: 1px solid #333; /* Ensure border visibility */
+    text-align: left; /* Align text to the left for consistency */
+}
+
+#customUniforms th {
+    background-color: #26292d; /* Darker background for header */
+    color: #99BFB8; /* Bright color for header text */
+}
+
+#customUniforms tr:nth-child(even) {
+    background-color: #1c1e22;
+}
+
+#customUniforms tr:nth-child(odd) {
+    background-color: #16181b;
+}
+
+#customUniforms tr:hover {
+    background-color: #2e3035; /* A lighter shade on hover */
+}
+
+/* Set minimum widths for table columns */
+#customUniforms th:nth-child(1), #customUniforms td:nth-child(1) { width: 30%; } /* Name column width */
+#customUniforms th:nth-child(2), #customUniforms td:nth-child(2) { width: 20%; } /* Type column width */
+#customUniforms th:nth-child(3), #customUniforms td:nth-child(3) { width: 50%; } /* Value column width */
+
+#downloadShader {
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
+    padding: 5px 5px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+}
+
+#downloadShader:hover {
+    background: #555; /* Slightly lighter background on hover for feedback */
+}
+
+.shader-error-panel {
+    position: fixed;
+    right: -100%; /* Start hidden */
+    color: red;
+    background: #333;
+    top: 40px;
+    width: 450px; /* Adjust width as needed */
+    height: calc(100% - 40px);
+    transition: right 0.5s;
+    overflow-y: auto; /* In case of many errors */
+    z-index: 1000; /* Ensure it's above other content */
+    text-align: left;
+    font-family: Consolas, "Courier New", monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.shader-error-panel.open {
+    right: 0;
+}
+
+.shader-error-panel.close {
+    right: -100%;
+}
+
+.shader-error-content {
+    color: red;
+    padding: 5px;
+}
+
+/* Class to turn the toggle button red */
+.error {
+    background-color: red;
+    color: white; /* Adjust text color as needed for visibility */
+}
+
+/* Class to make the button blink */
+@keyframes blink-animation {
+    50% {
+        opacity: 0.5; /* Semi-transparent at the midpoint of the animation */
+    }
+    100% {
+        opacity: 1; /* Fully opaque at the end of the animation */
+    }
+}
+
+.blink {
+    animation: blink-animation 1s linear infinite; /* Adjust timing as needed */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #0F1226;
+  margin: 15% auto;
+  padding: 20px;
+  border: 3px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close-button {
+  color: #99BFB8;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
