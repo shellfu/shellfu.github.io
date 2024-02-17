@@ -1,0 +1,12 @@
+<style>
+.marp-presentation, .foreignObject {
+    width: 10% !important;
+    height: auto !important;
+    border: 1px solid #ddd !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+}
+</style>
+<div class="marp-presentation">
+    {{ readFile (printf "static/%s" (.Get 0)) | safeHTML }}
+</div>
