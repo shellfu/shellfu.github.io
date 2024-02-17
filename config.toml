@@ -99,10 +99,3 @@ pluralizelisttitles = false
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
-[[menu.main]]
-    identifier = "external"
-    name = "External Site"
-    url = "https://example.com"
-    weight = 10
-

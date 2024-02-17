@@ -121,6 +121,30 @@ elements alters the underlying array. This shared reference model underscores
 the importance of understanding slice dynamics for data integrity and
 efficient resource use.
 
+### Memory Allocation, the slice or the array?
+
+You may be asking yourself, if slices are windows into an array, which one of them
+actually consumes the memory? Well, it's pretty straight forward.
+
+Slices do take up some memory, separate from the memory consumed by the array they
+reference. This is because a slice in Go is just a data structure with three
+components, look at the below taken directly from the Go source code.
+
+[Slice Source](https://github.com/golang/go/blob/master/src/runtime/slice.go#L15-L19)
+```go
+type slice struct {
+	array unsafe.Pointer
+	len   int
+	cap   int
+}
+```
+
+So, both the slice and the array consume memory, but they do so differently:
+
+- The array consumes memory based on its size, storing the actual data.
+- The slice consumes a smaller, fixed amount of memory to maintain its window into
+  the array, the pointer, length, and capacity.
+
 ## Practical Takeaways
 
 - **Performance:** Slices minimize data duplication, enabling swift manipulations.
