@@ -9,15 +9,11 @@ pluralizelisttitles = false
     description = "<p class='lead' style='font-size: 16px;'>principal software architect / devops</p>programming should make you happy, you should enjoy it!"
     dark_mode = true
     favicon = "/header2.jpg"
-    #hideToc = true
-    front_page_content = ["go programming", "projects"]
+    front_page_content = ["programming", "projects"]
 
     discord_url = "https://discord.com"
-    email_url = "mailto://shellfu@shellfu.com"
     github_url = "https://github.com/shellfu"
     linkedin_url = "https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=shellfu"
-
-
 
     menu = [
         # Dict keys:
@@ -31,7 +27,7 @@ pluralizelisttitles = false
         # inside of a directory with the same name.
 
         # Example:
-        {Name = "ShaderEd - glsl shader editor", URL = "/shadered/", HasChildren = false},
+        {Name = "ShaderEd - glsl shader editor", URL = "/shadered/"},
         {Name = "devops", URL = "/devops/", HasChildren = true, Limit = 5},
         {Name = "go programming", URL = "/programming/", HasChildren = true, Limit = 5},
         {Name = "game programming", URL = "/gamedev/", HasChildren = true, Limit = 5},
@@ -98,3 +94,15 @@ pluralizelisttitles = false
 [module]
   [[module.imports]]
     path = "github.com/lukeorth/poison"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[[menu.main]]
+    identifier = "external"
+    name = "External Site"
+    url = "https://example.com"
+    weight = 10
+
