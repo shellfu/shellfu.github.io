@@ -6,7 +6,7 @@ pluralizelisttitles = false
 [params]
     brand = "dk@shellfu:~#"
     brand_image = "/header3.png"
-    description = "<p class='lead' style='font-size: 16px;'>principal software architect / devops</p>programming should make you happy, you should enjoy it!"
+    description = "<p class='lead' style='font-size: 16px;'>Principal Engineer | Software Development | Seen as a Development Maven, Mentor & Leader</p>programming should make you happy, you should enjoy it!"
     dark_mode = true
     favicon = "/header2.jpg"
     front_page_content = ["programming", "projects"]
@@ -32,6 +32,7 @@ pluralizelisttitles = false
         {Name = "go programming", URL = "/programming/", HasChildren = true, Limit = 5},
         {Name = "game programming", URL = "/gamedev/", HasChildren = true, Limit = 5},
         {Name = "graphics programming", URL = "/opengl/", HasChildren = true, Limit = 5},
+        {Name = "theory", URL = "/theory/", HasChildren = true, Limit = 5},
         {Name = "projects", URL = "/projects/"},
         {Name = "courses", URL = "/courses/", HasChildren = true, Limit = 5},
     ]
